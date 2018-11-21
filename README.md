@@ -1,8 +1,8 @@
----Purpose---
+### Purpose
 
 Tracks a document for changes and sends the whole document through the websocket after each change made on the document.
 
----Installation and Execution---
+### Install and Execute
 
 Node.js must be installed first.
 
@@ -14,7 +14,7 @@ cd < path to file-watcher >
 npm install --save
 node server.js
 ```
----Connection---
+### Connect
 ```bash
 ws://localhost:< config.port >/?file=< config.file.name >
 ``` 
