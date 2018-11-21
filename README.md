@@ -8,7 +8,7 @@ Node.js must be installed first.
 
 ```bash
 cd < path to file-watcher >
-npm install
+npm install --save
 node server.js
 ```
 ---Connection---
