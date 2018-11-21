@@ -38,9 +38,8 @@ wss.on('connection', (ws,req) => {
 });
 //===================================== Watch File =====================================
 fs.watchFile( filePath, function ( curr, prev ) {
-   // on file change we can read the new xml
    fs.readFile( filePath,'utf8', function ( err, data ) {
-     if ( err ) console.log( err );
+     if ( err ) throw( err );
      else{
 
      	for( var i = 0; i < clients.length; i++ ){
