@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test-client</title>
+</head>
+<body>
+	<label>
+		File name:
+		<input 
+			id="filename" 
+			type="text"
+			value="test"
+		/>
+	</label>
+	<button id="conn" ><b>CONNECT</b></button>
+	<hr/>
+	
+
+	<hr/>
+	<div id="text"></div>
+	<script type="text/javascript">
+
+		var log = function (m) {
+		    var i = document.createElement('div');
+		    i.innerText = new Date().toISOString()+' '+m;
+		    var l = document.getElementById('text');
+		    l.appendChild(i);
+		}
+
+		document.getElementById("conn").addEventListener('click', function (m) { 
+			var s = new WebSocket("ws://localhost:9090/?file="+document.getElementById("filename").value );
+
+			s.addEventListener('error', function (m) { 
+				console.log(m);
+				log("error"); 
+			});
+
+			s.addEventListener('open', function (m) { 
+				log("Websocket connection open!");
+			});
+
+			s.addEventListener('close', function (m) { 
+				console.log(m);
+				log(m.reason); 
+			});
+
+			s.addEventListener('message', function (m) { 
+				console.log(  m )
+				log(m.data); 
+			});
+		});
+
+		
+
+	</script>
+</body>
+</html>
+
+
